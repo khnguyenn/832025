@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Display with Effect</title>
+    <title>International Women's Day</title>
     <style>
         * {
             margin: 0;
@@ -25,15 +25,13 @@
 
         h1 {
             padding-top: 50px;
-            color : #E2E2B6;
+            color: #E2E2B6;
             margin-bottom: 50px;
-        }
-        h1 {
             font-size: 2rem;
-            margin-bottom: 20px;
         }
+
         h2 {
-            color:#98D2C0;
+            color: #98D2C0;
         }
 
         .gallery {
@@ -62,23 +60,6 @@
             }
         }
 
-        @keyframes appear {
-            from {
-                opacity: 0;
-                scale : 0.5;
-            }
-            to {
-                opacity: 1;
-                scale : 1;
-            }
-        }
-        .flower {
-            position: fixed;
-            top: -50px;
-            font-size: 24px;
-            animation: fall linear infinite;
-        }
-
         @keyframes fall {
             0% { transform: translateY(0); opacity: 1; }
             100% { transform: translateY(100vh); opacity: 0; }
@@ -97,27 +78,26 @@
         }
 
         .video-section {
-            margin-top:50px;
-            padding:20px;
+            margin-top: 50px;
+            padding: 20px;
             display: none;
-            opacity:0;
+            opacity: 0;
             transition: opacity 0.8s ease-in-out;
+            text-align: center;
         }
 
-        video {
+        iframe {
             width: 80%;
-            max-width: 300px;
+            max-width: 640px;
+            height: 360px;
             border-radius: 10px;
-            margin: 0 auto;
-            display: block;
         }
-
     </style>
 </head>
 <body>
     <div class="start"> 
         <h1>🌸 Happy Women's Day 🌸</h1>
-        <h2>Sweet Home : Unit 17/94-116 Culloden Rd,Marsfield</h2>
+        <h2>Sweet Home : Unit 17 94-116 Culloden Rd, Marsfield</h2>
         <div class="gallery">
             <img src="img/IMG_4555.jpeg" class="line1"/>
             <img src="img/IMG_4556.jpeg" class="line1"/>
@@ -127,43 +107,26 @@
             <img src="img/053acf92-5959-4623-89ad-bd55e784ae50.jpeg" class="line1"/>
             <img src="img/IMG_4561.JPG" class="line1"/>
             <img src="img/IMG_3122.JPG" class="line1"/>
-
         </div>
     </div>
-    <div class ="gift">
+    <div class="gift">
         <button onclick="showVideo()">Món Quà Bí Mật</button>
         <div class="video-section" id="video-section">
-            <video controls>
-                <source src="img/final_vid.MOV" type="video/mp4">
-            </video>
+            <iframe id="drive-video" src="" allowfullscreen style="width: 300px; height: 533px; border-radius: 10px; display: block; margin: 0 auto;"></iframe>
         </div>
-    <div> 
+    </div> 
+
     <script>
-        function createFlower() {
-            const flower = document.createElement("div");
-            flower.innerText = "🌸"; 
-            flower.classList.add("flower");
-            flower.style.left = Math.random() * 100 + "vw";
-            flower.style.animationDuration = Math.random() * 3 + 2 + "s"; 
-
-            document.body.appendChild(flower);
-
-            setTimeout(() => {
-                flower.remove();
-            }, 5000);
-        }
-
-        setInterval(createFlower, 500);
-
         function showVideo() {
             let videoSection = document.getElementById("video-section");
-            videoSection.style.display = "block"; // Show the div
+            let videoFrame = document.getElementById("drive-video");
+            videoFrame.src = "https://drive.google.com/file/d/1b5j_bdySvRkdTNzj_meP3oKlM5mp_6-B/preview"; // Replace YOUR_FILE_ID
+            videoSection.style.display = "block";
             setTimeout(() => {
-                videoSection.style.opacity = "1"; // Fade in effect
+                videoSection.style.opacity = "1";
                 videoSection.scrollIntoView({ behavior: "smooth" });
             }, 50);
         }
     </script>
-
 </body>
 </html>
