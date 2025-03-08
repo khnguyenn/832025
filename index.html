@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Display with Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .start {
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #021526;
+        }
+
+        .gift {
+            margin-top: 50px;
+            background-color: white;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            padding-top: 50px;
+            color : #E2E2B6;
+            margin-bottom: 50px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color:#98D2C0;
+        }
+
+        .gallery {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 600px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                scale : 0.5;
+            }
+            to {
+                opacity: 1;
+                scale : 1;
+            }
+        }
+        .flower {
+            position: fixed;
+            top: -50px;
+            font-size: 24px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        button {
+            background-color: #021526;
+            color: #E2E2B6;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            font-size: 25px;
+        }
+
+        .video-section {
+            margin-top:50px;
+            padding:20px;
+            display: none;
+            opacity:0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        video {
+            width: 80%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 0 auto;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="start"> 
+        <h1>🌸 Happy Women's Day 🌸</h1>
+        <h2>Sweet Home : Unit 17/94-116 Culloden Rd,Marsfield</h2>
+        <div class="gallery">
+            <img src="img/IMG_4555.JPG" class="line1"/>
+            <img src="img/IMG_4556.JPG" class="line1"/>
+            <img src="img/IMG_4559.jpg" class="line1"/>
+            <img src="img/IMG_4560.JPG" class="line1"/>
+            <img src="img/0184ae10-14dc-4172-9f8b-cc4682ce8634.jpeg" class="line1"/>
+            <img src="img/053acf92-5959-4623-89ad-bd55e784ae50.jpeg" class="line1"/>
+            <img src="img/IMG_4561.JPG" class="line1"/>
+            <img src="img/IMG_3122.JPG" class="line1"/>
+
+        </div>
+    </div>
+    <div class ="gift">
+        <button onclick="showVideo()">Món Quà Bí Mật</button>
+        <div class="video-section" id="video-section">
+            <video controls>
+                <source src="img/final_vid.MOV" type="video/mp4">
+            </video>
+        </div>
+    <div> 
+    <script>
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.innerText = "🌸"; 
+            flower.classList.add("flower");
+            flower.style.left = Math.random() * 100 + "vw";
+            flower.style.animationDuration = Math.random() * 3 + 2 + "s"; 
+
+            document.body.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+
+        setInterval(createFlower, 500);
+
+        function showVideo() {
+            let videoSection = document.getElementById("video-section");
+            videoSection.style.display = "block"; // Show the div
+            setTimeout(() => {
+                videoSection.style.opacity = "1"; // Fade in effect
+                videoSection.scrollIntoView({ behavior: "smooth" });
+            }, 50);
+        }
+    </script>
+
+</body>
+</html>
